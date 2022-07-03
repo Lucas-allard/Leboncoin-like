@@ -81,7 +81,7 @@ class TestController extends AbstractController
      */
     public function delete(Request $request, Test $test, TestRepository $testRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$test->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $test->getId(), $request->request->get('_token'))) {
             $testRepository->remove($test, true);
         }
 

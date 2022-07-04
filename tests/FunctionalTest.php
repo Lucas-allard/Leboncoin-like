@@ -1,50 +1,50 @@
 <?php
 
-// namespace App\Tests;
+namespace App\Tests;
 
-// use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-// class FunctionalTest extends WebTestCase
-// {
-//     public function testShouldDisplayTest()
-//     {
-//         $client = static::createClient();
-//         $client->followRedirects();
-//         $crawler = $client->request('GET', '/test');
+class FunctionalTest extends WebTestCase
+{
+    public function testShouldDisplayTest()
+    {
+        $client = static::createClient();
+        $client->followRedirects();
+        $crawler = $client->request('GET', '/test');
 
-//         $this->assertResponseIsSuccessful();
-//         $this->assertSelectorTextContains('h1', 'Test index');
-//     }
+        $this->assertResponseIsSuccessful();
+        $this->assertSelectorTextContains('h1', 'Test index');
+    }
 
-//     public function testShouldDisplayCreateNewTest()
-//     {
-//         $client = static::createClient();
-//         $client->followRedirects();
-//         $crawler = $client->request('GET', '/test/new');
+    public function testShouldDisplayCreateNewTest()
+    {
+        $client = static::createClient();
+        $client->followRedirects();
+        $crawler = $client->request('GET', '/test/new');
 
-//         $this->assertResponseIsSuccessful();
-//         $this->assertSelectorTextContains('h1', 'Create new Test');
-//     }
+        $this->assertResponseIsSuccessful();
+        $this->assertSelectorTextContains('h1', 'Create new Test');
+    }
 
-//     public function testShouldAddNewTest()
-//     {
-//         $client = static::createClient();
-//         $client->followRedirects();
-//         $crawler = $client->request('GET', '/test/new');
+    public function testShouldAddNewTest()
+    {
+        $client = static::createClient();
+        $client->followRedirects();
+        $crawler = $client->request('GET', '/test/new');
 
-//         $buttonCrawlerNode = $crawler->selectButton('Save');
+        $buttonCrawlerNode = $crawler->selectButton('Save');
 
-//         $form = $buttonCrawlerNode->form();
+        $form = $buttonCrawlerNode->form();
 
-//         $uuid = uniqid();
+        $uuid = uniqid();
 
-//         $form = $buttonCrawlerNode->form([
-//             'test[test]'    => 'Add Test For Test' . $uuid,
-//         ]);
+        $form = $buttonCrawlerNode->form([
+            'test[test]'    => 'Add Test For Test' . $uuid,
+        ]);
 
-//         $client->submit($form);
+        $client->submit($form);
 
-//         $this->assertResponseIsSuccessful();
-//         $this->assertSelectorTextContains('body', 'Add Test For Test' . $uuid);
-//     }
-// }
+        $this->assertResponseIsSuccessful();
+        $this->assertSelectorTextContains('body', 'Add Test For Test' . $uuid);
+    }
+}

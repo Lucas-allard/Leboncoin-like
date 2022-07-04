@@ -28,6 +28,8 @@ symfony check-requirements
 
 ```bash
 docker-compose up -d
+npm install 
+npm run build
 ```
 
 ### Lancer les test 

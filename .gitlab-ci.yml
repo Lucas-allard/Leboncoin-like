@@ -44,10 +44,10 @@ phpunit:
       alias: mysql
   variables:
     MYSQL_ROOT_PASSWORD: pass_test
-    MYSQL_DATABASE: myapptest
-    MYSQL_USER: myapptest
-    MYSQL_PASSWORD: myapptest
-    DATABASE_URL: "mysql://myapptest:myapptest@mysql:3306/myapptest"
+    MYSQL_DATABASE: myapptestlbc
+    MYSQL_USER: myapptestlbc
+    MYSQL_PASSWORD: myapptestlbc
+    DATABASE_URL: "mysql://myapptestlbc:myapptestlbc@mysql:3306/myapptestlbc"
   before_script:
     - apt-get update && apt-get install -y git libzip-dev
     - curl -sSk https://getcomposer.org/installer | php -- --disable-tls && mv composer.phar /usr/local/bin/composer

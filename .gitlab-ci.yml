@@ -47,8 +47,7 @@ phpunit:
       MYSQL_ROOT_PASSWORD: pass_test
       MYSQL_DATABASE: myapptest
       MYSQL_USER: myapptest
-      MYSQL_PASSWORD: myapptest
-      DATABASE_URL: 'mysql://myapptest:myapptest@db_test:3306/'
+      DATABASE_URL: 'mysql://myapptest:@db_test:3306/myapptest'
     before_script:
         - apt-get update && apt-get install -y git libzip-dev
         - curl -sSk https://getcomposer.org/installer | php -- --disable-tls && mv composer.phar /usr/local/bin/composer

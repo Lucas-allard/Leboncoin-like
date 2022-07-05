@@ -27,6 +27,12 @@ class Files
      */
     private $ad;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Categories::class, inversedBy="files", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +58,18 @@ class Files
     public function setAd(?Ads $ad): self
     {
         $this->ad = $ad;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Categories
+    {
+        return $this->category;
+    }
+
+    public function setCategory(Categories $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

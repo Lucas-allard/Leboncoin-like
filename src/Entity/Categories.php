@@ -34,6 +34,11 @@ class Categories
      */
     private $ads;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Files::class, mappedBy="category", cascade={"persist", "remove"})
+     */
+    private $files;
+
     public function __construct()
     {
         $this->ads = new ArrayCollection();
@@ -94,6 +99,23 @@ class Categories
                 $ad->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFiles(): ?Files
+    {
+        return $this->files;
+    }
+
+    public function setFiles(Files $files): self
+    {
+        // set the owning side of the relation if necessary
+        if ($files->getCategory() !== $this) {
+            $files->setCategory($this);
+        }
+
+        $this->files = $files;
 
         return $this;
     }

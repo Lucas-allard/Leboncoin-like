@@ -30,6 +30,13 @@ symfony check-requirements
 docker-compose up -d
 npm install 
 npm run build
+docker exec -it www_docker_lbc bash
+```
+
+### Ajout des fixtures 
+
+```bash
+php bin/console doctrine:fixtures:load
 ```
 
 ### Lancer les test 

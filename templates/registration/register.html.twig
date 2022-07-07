@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'enregistrer{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <section class="vh-100 justify-content-center d-flex">
+        <div class="container-fluid h-custom align-self-center">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                {{ form_start(registrationForm) }}
+                    <div class="form-outline mb-4">
+                        {{ form_widget(registrationForm.email,{ 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+                        {{ form_label(registrationForm.email, "Adresse email", { 'attr' : { 'class' : 'form-label' } }) }}
+                        {{ form_errors(registrationForm.email) }}
+
+                    </div>
+                   <div class="form-outline mb-4">
+                        {{ form_widget(registrationForm.lastname, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+                        {{ form_label(registrationForm.lastname,  "Nom", { 'attr' : { 'class' : 'form-label' } }) }}
+                        {{ form_errors(registrationForm.lastname) }}
+
+                    </div>
+                    <div class="form-outline mb-4">
+                        {{ form_widget(registrationForm.firstname, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+                        {{ form_label(registrationForm.firstname,  "Prénom", { 'attr' : { 'class' : 'form-label' } }) }}
+                        {{ form_errors(registrationForm.firstname)}}
+
+                    </div>
+                    <div class="form-outline mb-4">
+                        {{ form_widget(registrationForm.phoneNumber, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+                        {{ form_label(registrationForm.phoneNumber,  "Téléphone", { 'attr' : { 'class' : 'form-label' } }) }}
+                        {{ form_errors(registrationForm.phoneNumber)}}
+
+                    </div>
+                    <div class="form-outline mb-4">
+                        {{ form_widget(registrationForm.plainPassword, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+                        {{ form_label(registrationForm.plainPassword,  "Mot de passe", { 'attr' : { 'class' : 'form-label' } }) }}
+                        {{ form_errors(registrationForm.plainPassword)}}
+                    </div>
+                    <div class="form-outline mb-4">
+                    {{ form_widget(registrationForm.agreeTerms) }}
+                    {{ form_label(registrationForm.agreeTerms, 'accepter les termes de confidentialités') }}
+                    </div>
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-success btn-lg"
+                          style="padding-left: 2.5rem; padding-right: 2.5rem;">Connexion</button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Pas de compte? <a href="{{ path('app_register') }}"
+                            class="link-danger">S'enregistrer</a></p>
+                    </div>
+                    
+                {{ form_end(registrationForm) }}
+                
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

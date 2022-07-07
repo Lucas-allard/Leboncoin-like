@@ -5,6 +5,10 @@
 
 {% block body %} 
 
+  {% for message in app.flashes('success') %}
+  <div class="alert alert-success" role="alert">{{ message }}</div>
+  {% endfor %}
+
   {% include 'homepage/welcome.html.twig' %}
   {% include 'homepage/categories.html.twig' %}
   {% include 'homepage/products.html.twig' %}

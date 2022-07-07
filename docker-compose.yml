@@ -2,15 +2,15 @@ version: "3.8"
 services:
 
     db:
-      image: mysql
-      container_name: db_docker_lbc
-      restart: always
-      volumes: 
-          - db-data:/var/lib/mysql
-      environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-      networks: 
-          - dev
+        image: mysql
+        container_name: db_docker_lbc
+        restart: always
+        volumes: 
+            - db-data:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        networks: 
+            - dev
 
     phpmyadmin:
         image: phpmyadmin
@@ -25,10 +25,23 @@ services:
         networks:
             - dev
 
-    mailer:
-        image: schickling/mailcatcher
-        ports: [1025,1080]
-      
+    mailhog:
+        image: mailhog/mailhog
+        container_name: mailhog_docker_lbc
+        ports: 
+            - "1025:1025"
+            - "8025:8025"
+        restart: always
+        # environment:
+        #     MAIL_MAILER: smtp
+        #     MAIL_HOST: 127.0.0.1
+        #     MAIL_PORT: 1025
+        #     MAIL_USERNAME: null
+        #     MAIL_PASSWORD: null
+        #     MAIL_ENCRYPTION: null
+        networks:
+            - dev
+
     www:
         build: php
         container_name: www_docker_lbc
@@ -40,6 +53,7 @@ services:
         restart: always
         networks:
             - dev
+
 networks:
     dev:
 

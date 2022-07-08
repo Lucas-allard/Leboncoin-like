@@ -100,7 +100,6 @@ class AppFixtures extends Fixture
 
                     $manager->persist($ad2);
                     $manager->persist($files3);
-
                 }
             }
         }
@@ -119,7 +118,7 @@ class AppFixtures extends Fixture
 
             $manager->persist($category2);
             $manager->persist($files4);
-  
+
             for ($m = 0; $m < 20; $m++) {
                 $user2 = new Users();
 

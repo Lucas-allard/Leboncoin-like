@@ -12,10 +12,16 @@ class HomepageController extends AbstractController
     /**
      * @Route("/", name="app_home")
      */
-    public function index(AdsRepository $adsRepository): Response
-    {
+    public function index(
+        AdsRepository $adsRepository
+    ): Response {
         return $this->render('homepage/index.html.twig', [
-            'controller_name' => 'HomepageController',
+            'ads' => $adsRepository->findBy(
+                ['active' => true],
+                ['created_at' => 'desc'],
+                100
+            ),
+            'topCategories' => $adsRepository->getTopCategories(),
         ]);
     }
 }

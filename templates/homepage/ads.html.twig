@@ -1,0 +1,52 @@
+<!-- Start Featured Product -->
+<section class="bg-light">
+  <div class="container py-5">
+    <div class="row text-center py-3">
+      <div class="col-lg-6 m-auto">
+        <h1 class="h1">Dernières annonces</h1>
+        <p>
+          Reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      {% for ad in ads %}
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card h-100">
+          <a href="shop-single.html">
+            <img
+              src="{{ ad.files[0].path }}"
+              alt="..."
+              style="max-width:100%"
+            />
+          </a>
+          <div class="card-body">
+            <ul class="list-unstyled d-flex justify-content-between">
+              <li>
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-muted fa fa-star"></i>
+                <i class="text-muted fa fa-star"></i>
+              </li>
+              <li class="text-muted text-right">{{ ad.price|number_format(2,',') }} €</li>
+            </ul>
+            <a
+              href="shop-single.html"
+              class="h2 text-decoration-none text-dark"
+              >{{ ad.title }} - {{ ad.category.name }} -  </a
+            >
+            <p> <time datetime="2019-05-29">{{ ad.createdAt|date('d/m/Y') }}</time> </p>
+            <p class="card-text">
+              {{ ad.description }}
+            </p>
+            <p class="text-muted">Nombre de personnes qui suivent l'annonce (24)</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- End Featured Product -->

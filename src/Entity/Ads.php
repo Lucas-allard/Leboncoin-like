@@ -76,6 +76,26 @@ class Ads
      */
     private $adsTrackings;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $area;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $department;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $city;
+
     public function __construct()
     {
         $this->files = new ArrayCollection();
@@ -251,6 +271,54 @@ class Ads
                 $adsTracking->setAd(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    public function getArea(): ?string
+    {
+        return $this->area;
+    }
+
+    public function setArea(string $area): self
+    {
+        $this->area = $area;
+
+        return $this;
+    }
+
+    public function getDepartment(): ?string
+    {
+        return $this->department;
+    }
+
+    public function setDepartment(string $department): self
+    {
+        $this->department = $department;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
 
         return $this;
     }

@@ -60,10 +60,14 @@ class AppFixtures extends Fixture
                         ->setCategory($category)
                         ->setTitle($faker->word(3, true))
                         ->setStateOfUse(("Occasion"))
-                        ->setPrice($faker->randomFloat(2, 1, 10000000))
+                        ->setPrice($faker->randomFloat(2, 1, 1000))
                         ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
                         ->setDescription($faker->text())
-                        ->setSlug($faker->slug());
+                        ->setSlug($faker->slug())
+                        ->setActive(true)
+                        ->setArea($faker->region())
+                        ->setDepartment($faker->departmentName())
+                        ->setCity($faker->city());
 
                     $files2 = new Files();
                     $files2
@@ -80,10 +84,14 @@ class AppFixtures extends Fixture
                         ->setCategory($category)
                         ->setTitle($faker->word(3, true))
                         ->setStateOfUse(("Neuf"))
-                        ->setPrice($faker->randomFloat(2, 1, 10000000))
+                        ->setPrice($faker->randomFloat(2, 1, 1000))
                         ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
                         ->setDescription($faker->text())
-                        ->setSlug($faker->slug());
+                        ->setSlug($faker->slug())
+                        ->setActive(true)
+                        ->setArea($faker->region())
+                        ->setDepartment($faker->departmentName())
+                        ->setCity($faker->city());
 
                     $files3 = new Files();
                     $files3
@@ -92,6 +100,62 @@ class AppFixtures extends Fixture
 
                     $manager->persist($ad2);
                     $manager->persist($files3);
+                }
+            }
+        }
+
+        for ($i = 0; $i < 3; $i++) {
+            $category2 = new Categories();
+            $files4 = new Files();
+
+            $category2
+                ->setName($faker->word(3, true))
+                ->setSlug($faker->slug());
+
+            $files4
+                ->setPath('img/banner_img_01.jpg')
+                ->setCategory($category2);
+
+            $manager->persist($category2);
+            $manager->persist($files4);
+
+            for ($m = 0; $m < 20; $m++) {
+                $user2 = new Users();
+
+                $user2
+                    ->setEmail($faker->email())
+                    ->setLastName($faker->lastName())
+                    ->setFirstName($faker->firstName())
+                    ->setPhoneNumber($faker->phoneNumber())
+                    ->setIsVerified(true);
+
+                $password2 = $this->encoder->hashPassword($user2, 'password');
+                $user2->setPassword($password);
+
+                $manager->persist($user2);
+
+                for ($n = 0; $n < 2; $n++) {
+                    $ad3 = new Ads();
+                    $ad3->setUser($user)
+                        ->setCategory($category)
+                        ->setTitle($faker->word(3, true))
+                        ->setStateOfUse(("Occasion"))
+                        ->setPrice($faker->randomFloat(2, 1, 1000))
+                        ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
+                        ->setDescription($faker->text())
+                        ->setSlug($faker->slug())
+                        ->setActive(true)
+                        ->setArea($faker->region())
+                        ->setDepartment($faker->departmentName())
+                        ->setCity($faker->city());
+
+                    $files5 = new Files();
+                    $files5
+                        ->setPath('img/banner_img_02.jpg')
+                        ->setAd($ad3);
+
+                    $manager->persist($ad3);
+                    $manager->persist($files5);
                 }
             }
         }

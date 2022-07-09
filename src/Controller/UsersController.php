@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-
 // Route par defaut
 /**
  * @Route("/users", name="users_")
@@ -42,7 +41,7 @@ class UsersController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $ad->setUser($this->getUser());
             $ad->setActive(false);
-            $em = $this->getDoctrine()->getManager();;
+            $em = $this->getDoctrine()->getManager();
             $em->persist($ad);
             $em->flush();
 

@@ -9,9 +9,9 @@ use App\Entity\Files;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
-use Faker\Provider\bg_BG\PhoneNumber;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
+
 class AppFixtures extends Fixture
 {
     private UserPasswordHasherInterface $encoder;
@@ -32,7 +32,7 @@ class AppFixtures extends Fixture
 
             $category
                 ->setName($faker->word(3, true));
-                // ->setSlug(strtolower($this->slugger->slug($category->getName())));
+            // ->setSlug(strtolower($this->slugger->slug($category->getName())));
 
             $files
                 ->setPath('img/banner_img_01.jpg')
@@ -112,7 +112,7 @@ class AppFixtures extends Fixture
 
             $category2
                 ->setName($faker->word(3, true));
-                // ->setSlug(strtolower($this->slugger->slug($category2->getName())));
+            // ->setSlug(strtolower($this->slugger->slug($category2->getName())));
 
             $files4
                 ->setPath('img/banner_img_01.jpg')

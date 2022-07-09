@@ -163,12 +163,12 @@ class Ads
         return $this->created_at;
     }
 
-    // public function setCreatedAt(\DateTime $created_at): self
-    // {
-    //     $this->created_at = $created_at;
+    public function setCreatedAt(\DateTime $created_at): self
+    {
+        $this->created_at = $created_at;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
     public function getDescription(): ?string
     {

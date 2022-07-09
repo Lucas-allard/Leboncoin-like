@@ -12,8 +12,6 @@ use Faker\Factory;
 use Faker\Provider\bg_BG\PhoneNumber;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
-
-
 class AppFixtures extends Fixture
 {
     private UserPasswordHasherInterface $encoder;

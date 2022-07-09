@@ -3,7 +3,7 @@
 twig:
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
-    fos_ck_editor:
+fos_ck_editor:
     configs:
         main_config:
             toolbar:
@@ -12,3 +12,5 @@ twig:
                 'Indent', '-', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
                 '-', 'Image', 'Table', '-', 'Styles', 'Format','Font','FontSize', '-', 'TextColor',
                 'BGColor', 'Source'] }
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters: []

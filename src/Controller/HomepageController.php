@@ -16,7 +16,7 @@ class HomepageController extends AbstractController
      */
     public function index(
         AdsRepository $adsRepository,
-        PaginatorInterface  $paginator,
+        PaginatorInterface $paginator,
         Request $request
     ): Response {
         $data = $adsRepository->findBy(

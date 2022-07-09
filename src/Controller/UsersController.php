@@ -22,7 +22,7 @@ class UsersController extends AbstractController
      */
     public function index(): Response
     {
-        $user = new Users;
+        $user = new Users();
         return $this->render('users/index.html.twig', [
             'controller_name' => $user->getFirstName(),
         ]);

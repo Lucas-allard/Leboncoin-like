@@ -33,8 +33,8 @@ class AppFixtures extends Fixture
             $files = new Files();
 
             $category
-                ->setName($faker->word(3, true))
-                ->setSlug(strtolower($this->slugger->slug($category->getName())));
+                ->setName($faker->word(3, true));
+                // ->setSlug(strtolower($this->slugger->slug($category->getName())));
 
             $files
                 ->setPath('img/banner_img_01.jpg')
@@ -65,9 +65,9 @@ class AppFixtures extends Fixture
                         ->setTitle($faker->word(3, true))
                         ->setStateOfUse(("Occasion"))
                         ->setPrice($faker->randomFloat(2, 1, 1000))
-                        ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
+                        // ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
                         ->setDescription($faker->text())
-                        ->setSlug(strtolower($this->slugger->slug($ad->getTitle())))
+                        // ->setSlug(strtolower($this->slugger->slug($ad->getTitle())))
                         ->setActive(true)
                         ->setArea($faker->region())
                         ->setDepartment($faker->departmentName())
@@ -89,9 +89,9 @@ class AppFixtures extends Fixture
                         ->setTitle($faker->word(3, true))
                         ->setStateOfUse(("Neuf"))
                         ->setPrice($faker->randomFloat(2, 1, 1000))
-                        ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
+                        // ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
                         ->setDescription($faker->text())
-                        ->setSlug(strtolower($this->slugger->slug($ad2->getTitle())))
+                        // ->setSlug(strtolower($this->slugger->slug($ad2->getTitle())))
                         ->setActive(true)
                         ->setArea($faker->region())
                         ->setDepartment($faker->departmentName())
@@ -113,8 +113,8 @@ class AppFixtures extends Fixture
             $files4 = new Files();
 
             $category2
-                ->setName($faker->word(3, true))
-                ->setSlug(strtolower($this->slugger->slug($category2->getName())));
+                ->setName($faker->word(3, true));
+                // ->setSlug(strtolower($this->slugger->slug($category2->getName())));
 
             $files4
                 ->setPath('img/banner_img_01.jpg')
@@ -145,9 +145,9 @@ class AppFixtures extends Fixture
                         ->setTitle($faker->word(3, true))
                         ->setStateOfUse(("Occasion"))
                         ->setPrice($faker->randomFloat(2, 1, 1000))
-                        ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
+                        // ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
                         ->setDescription($faker->text())
-                        ->setSlug(strtolower($this->slugger->slug($ad3->getTitle())))
+                        // ->setSlug(strtolower($this->slugger->slug($ad3->getTitle())))
                         ->setActive(true)
                         ->setArea($faker->region())
                         ->setDepartment($faker->departmentName())

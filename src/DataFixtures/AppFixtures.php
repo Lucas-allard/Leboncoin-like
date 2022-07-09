@@ -11,14 +11,18 @@ use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Faker\Provider\bg_BG\PhoneNumber;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
+
 
 class AppFixtures extends Fixture
 {
     private UserPasswordHasherInterface $encoder;
+    protected SluggerInterface $slugger;
 
-    public function __construct(UserPasswordHasherInterface $encoder)
+    public function __construct(UserPasswordHasherInterface $encoder, SluggerInterface $slugger)
     {
         $this->encoder = $encoder;
+        $this->slugger = $slugger;
     }
 
     public function load(ObjectManager $manager): void
@@ -30,7 +34,7 @@ class AppFixtures extends Fixture
 
             $category
                 ->setName($faker->word(3, true))
-                ->setSlug($faker->slug());
+                ->setSlug(strtolower($this->slugger->slug($category->getName())));
 
             $files
                 ->setPath('img/banner_img_01.jpg')
@@ -63,7 +67,7 @@ class AppFixtures extends Fixture
                         ->setPrice($faker->randomFloat(2, 1, 1000))
                         ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
                         ->setDescription($faker->text())
-                        ->setSlug($faker->slug())
+                        ->setSlug(strtolower($this->slugger->slug($ad->getTitle())))
                         ->setActive(true)
                         ->setArea($faker->region())
                         ->setDepartment($faker->departmentName())
@@ -87,7 +91,7 @@ class AppFixtures extends Fixture
                         ->setPrice($faker->randomFloat(2, 1, 1000))
                         ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
                         ->setDescription($faker->text())
-                        ->setSlug($faker->slug())
+                        ->setSlug(strtolower($this->slugger->slug($ad2->getTitle())))
                         ->setActive(true)
                         ->setArea($faker->region())
                         ->setDepartment($faker->departmentName())
@@ -110,7 +114,7 @@ class AppFixtures extends Fixture
 
             $category2
                 ->setName($faker->word(3, true))
-                ->setSlug($faker->slug());
+                ->setSlug(strtolower($this->slugger->slug($category2->getName())));
 
             $files4
                 ->setPath('img/banner_img_01.jpg')
@@ -143,7 +147,7 @@ class AppFixtures extends Fixture
                         ->setPrice($faker->randomFloat(2, 1, 1000))
                         ->setCreatedAt($faker->dateTimeBetween('-6 months', 'now'))
                         ->setDescription($faker->text())
-                        ->setSlug($faker->slug())
+                        ->setSlug(strtolower($this->slugger->slug($ad3->getTitle())))
                         ->setActive(true)
                         ->setArea($faker->region())
                         ->setDepartment($faker->departmentName())

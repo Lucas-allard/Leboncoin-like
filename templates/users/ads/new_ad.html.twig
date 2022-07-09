@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une annonce{% endblock %}
+
+{% block body %}
+
+
+{% for message in app.flashes('alert') %}
+<div class="alert alert-alert" role="alert">{{ message }}</div>
+{% endfor %}
+
+<section class="justify-content-center d-flex p-5">
+  <div class="container-fluid h-custom align-self-center">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          {{ form_start(form) }}
+            <div class="form-outline mb-4">
+              {{ form_label(form.category,  "Categorie", { 'attr' : { 'class' : 'form-label' } }) }}
+              {{ form_widget(form.category, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+              {{ form_errors(form.category) }}
+            </div>
+            <div class="form-outline mb-4">
+              {{ form_label(form.title,  "Titre de l'annonce", { 'attr' : { 'class' : 'form-label' } }) }}
+              {{ form_widget(form.title, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+              {{ form_errors(form.title) }}
+            </div>
+            <div class="form-outline mb-4">
+              {{ form_label(form.state_of_use,  "Etat", { 'attr' : { 'class' : 'form-label' } }) }}
+              {{ form_widget(form.state_of_use, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+              {{ form_errors(form.state_of_use) }}
+            </div>
+            <div class="form-outline mb-4">
+              {{ form_label(form.price,  "Prix", { 'attr' : { 'class' : 'form-label' } }) }}
+              {{ form_widget(form.price, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+              {{ form_errors(form.price) }}
+            </div>
+            <div class="form-outline mb-4">
+              {{ form_label(form.delivery_price,  "Frais de livraison", { 'attr' : { 'class' : 'form-label' } }) }}
+              {{ form_widget(form.delivery_price, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+              {{ form_errors(form.delivery_price) }}
+            </div>
+            <div class="form-outline mb-4">
+              {{ form_label(form.description,  "Description", { 'attr' : { 'class' : 'form-label' } }) }}
+              {{ form_widget(form.description, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+              {{ form_errors(form.description) }}
+
+            </div>
+            <div class="form-outline mb-4">
+              {{ form_label(form.area,  "Region", { 'attr' : { 'class' : 'form-label' } }) }}
+              {{ form_widget(form.area, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+              {{ form_errors(form.area) }}
+            </div>
+            <div class="form-outline mb-4">
+              {{ form_label(form.department,  "Departement", { 'attr' : { 'class' : 'form-label' } }) }}
+              {{ form_widget(form.department, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+              {{ form_errors(form.department) }}
+            </div>
+            <div class="form-outline mb-4">
+              {{ form_label(form.city,  "Ville", { 'attr' : { 'class' : 'form-label' } }) }}
+              {{ form_widget(form.city, { 'attr' : { 'class' : 'form-control form-control-lg' } }) }}
+              {{ form_errors(form.city) }}
+            </div>
+            <div class="text-center text-lg-start mt-4 pt-2">
+                <button type="submit" class="btn btn-success btn-lg"
+                  style="padding-left: 2.5rem; padding-right: 2.5rem;">Ajouter l'annonce</button>
+            </div>
+          {{ form_end(form) }}
+      </div>
+  </div>
+</section>
+
+{% endblock %}
+

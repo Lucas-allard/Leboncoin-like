@@ -48,5 +48,9 @@
       {% endfor %}
     </div>
   </div>
+  <div class="d-flex justify-content-center">
+    {% do ads.setPageRange(2) %}
+    {{ knp_pagination_render(ads, 'base/pagination.html.twig') }}
+  </div>
 </section>
 <!-- End Featured Product -->

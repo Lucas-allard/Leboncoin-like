@@ -6,6 +6,7 @@ use App\Repository\AdsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=AdsRepository::class)
@@ -40,6 +41,7 @@ class Ads
     private $delivery_price;
 
     /**
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $created_at;
@@ -50,6 +52,7 @@ class Ads
     private $description;
 
     /**
+     * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
@@ -160,12 +163,12 @@ class Ads
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTime $created_at): self
-    {
-        $this->created_at = $created_at;
+    // public function setCreatedAt(\DateTime $created_at): self
+    // {
+    //     $this->created_at = $created_at;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getDescription(): ?string
     {
@@ -184,12 +187,12 @@ class Ads
         return $this->slug;
     }
 
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
+    // public function setSlug(string $slug): self
+    // {
+    //     $this->slug = $slug;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getUser(): ?Users
     {
